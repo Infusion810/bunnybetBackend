@@ -65,7 +65,7 @@ port = 5001
 
 app.use(
   cors({
-    origin: ["https://bunnybet9-front.vercel.app","https://bunnybet9-admin.vercel.app"], // Replace '*' with the specific origin(s) you want to allow, e.g., 'https://yourdomain.com'
+    origin: ["https://bunnybet9-front.vercel.app","https://bunnybet9-admin.vercel.app","https://admin.bunnybet9.in","https://www.bunnybet9.in"], // Replace '*' with the specific origin(s) you want to allow, e.g., 'https://yourdomain.com'
     methods: ['POST', 'GET', 'PUT', 'DELETE'], // Define allowed HTTP methods
     credentials: true, // Allow credentials like cookies to be sent
   })

@@ -52,7 +52,7 @@ const io = socketIo(server, {
 
 
 
-port = 4000
+port = 5001
 // CORS configuration
 
 // app.use(
@@ -63,13 +63,13 @@ port = 4000
 //   })
 // );
 
-// app.use(
-//   cors({
-//     origin: ["https://www.98fastbet.com", "https://admin.98fastbet.com","https://matka.98fastbet.com","https://payment.98fastbet.com","https://avaitor.98fastbet.com","https://market.98fastbet.com","https://titli.98fastbet.com"], // Replace '*' with the specific origin(s) you want to allow, e.g., 'https://yourdomain.com'
-//     methods: ['POST', 'GET', 'PUT', 'DELETE'], // Define allowed HTTP methods
-//     credentials: true, // Allow credentials like cookies to be sent
-//   })
-// );
+app.use(
+  cors({
+    origin: ["https://www.98fastbet.com", "https://admin.98fastbet.com","https://matka.98fastbet.com","https://payment.98fastbet.com","https://avaitor.98fastbet.com","https://market.98fastbet.com","https://titli.98fastbet.com"], // Replace '*' with the specific origin(s) you want to allow, e.g., 'https://yourdomain.com'
+    methods: ['POST', 'GET', 'PUT', 'DELETE'], // Define allowed HTTP methods
+    credentials: true, // Allow credentials like cookies to be sent
+  })
+);
 app.use(cors());
 
 const MONGO_URI = process.env.mongodb_url;
@@ -1253,11 +1253,14 @@ io.on('connection', (socket) => {
   });
 });
 
-const PORT =4000;
-server.listen(PORT, () => {
+// const PORT =4000;
+// server.listen(PORT, () => {
+//   console.log(`Server started on port ${PORT}`);
+// });
+const PORT = process.env.PORT || 5001;
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server started on port ${PORT}`);
 });
-
 // Expose these functions for use in other files like titliWinnerController
 exports.startNewTitliRound = startNewTitliRound;
 exports.endTitliBettingPhase = endTitliBettingPhase;
